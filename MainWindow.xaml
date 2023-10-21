@@ -1,0 +1,336 @@
+﻿<Window x:Class="StockManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" 
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" WindowStyle="None" 
+        WindowState="Maximized" Background="#30323D">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*" />
+            <ColumnDefinition Width="267*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*" />
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Artikkel nummer" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                    <TextBox Name="artNumberSearch" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="#4D5061"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Grid Grid.Row="1" Margin="10" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Zoek" Click="SearchItem">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#38AECC"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                <Setter Property="FontSize" Value="30"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="Padding" Value="8"></Setter>
+                                <Setter Property="Margin" Value="2"></Setter>
+                            </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="1" Content="Toon alles" Click="DisplayAll">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#38AECC"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                <Setter Property="FontSize" Value="30"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="Padding" Value="8"></Setter>
+                                <Setter Property="Margin" Value="2"></Setter>
+                            </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Background="White"></Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Grid.Row="0">
+                        <TextBlock Text="Artikelnummer" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                        <TextBox Name="artNumberInput" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"></Setter>
+                                </Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Background" Value="#4D5061"></Setter>
+                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Naam" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                    <TextBox Name="nameInput" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="#4D5061"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Kleur" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                    <TextBox Name="colorInput" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="#4D5061"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="3">
+                    <TextBlock Text="Aantal" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                    <TextBox Name="quantityInput" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="#4D5061"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="4">
+                    <TextBlock Text="Prijs" FontSize="30" FontWeight="Bold" Foreground="White" Margin="5"></TextBlock>
+                    <TextBox Name="priceInput" FontSize="30" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Background" Value="#4D5061"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="5" Orientation="Vertical" VerticalAlignment="Center">
+                    <Button Content="Toevoegen" Click="AddNewItem" Margin="10">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#38AECC"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                <Setter Property="FontSize" Value="30"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="Padding" Value="8"></Setter>
+                                <Setter Property="Margin" Value="2"></Setter>
+                            </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3" Background="White"></Grid>
+            <Grid Grid.Row="4">
+                <Button Content="Afsluiten" Click="CloseWindow" Margin="10">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BF4342"></Setter>
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                            <Setter Property="BorderThickness" Value="0"></Setter>
+                            <Setter Property="FontSize" Value="30"></Setter>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="Padding" Value="8"></Setter>
+                            <Setter Property="Margin" Value="2"></Setter>
+                        </Style>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Background="Transparent">
+            <DataGrid Name="stockList" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="Nummer" Width="0.3*" Binding="{Binding ArtNumber}"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Header="Model" Width="0.5*" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Header="Kleur" Width="0.3*" Binding="{Binding Color}"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Header="Stock" Width="0.2*" Binding="{Binding Quantity}"></DataGridTextColumn>
+                    <DataGridTemplateColumn IsReadOnly="True" Header="Prijs" Width="0.2*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Price, StringFormat='€{0:F2}'}" Foreground="White" FontSize="30" FontWeight="Bold" Padding="8" Margin="2" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="" Width="0.7*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button Content="- 1" Click="DeleteItem">
+                                        <Button.Resources>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#BF4342"></Setter>
+                                                <Setter Property="Foreground" Value="White"></Setter>
+                                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                                <Setter Property="FontSize" Value="30"></Setter>
+                                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                                <Setter Property="Padding" Value="8"></Setter>
+                                                <Setter Property="Margin" Value="2"></Setter>
+                                            </Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                    <Button Content="Verwijder alle" Click="DeleteAllItems">
+                                        <Button.Resources>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#BF4342"></Setter>
+                                                <Setter Property="Foreground" Value="White"></Setter>
+                                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                                <Setter Property="FontSize" Value="30"></Setter>
+                                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                                <Setter Property="Padding" Value="8"></Setter>
+                                                <Setter Property="Margin" Value="2"></Setter>
+                                            </Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                    <Button Content="+ 1" Click="AddItem">
+                                        <Button.Resources>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#CAD49D"></Setter>
+                                                <Setter Property="Foreground" Value="White"></Setter>
+                                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                                                <Setter Property="BorderThickness" Value="0"></Setter>
+                                                <Setter Property="FontSize" Value="30"></Setter>
+                                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                                <Setter Property="Padding" Value="8"></Setter>
+                                                <Setter Property="Margin" Value="2"></Setter>
+                                            </Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                    <Style TargetType="DataGrid">
+                        <Setter Property="Background" Value="#4D5061"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="RowBackground" Value="Transparent"/>
+                        <Setter Property="Margin" Value="10,10,10,10"></Setter>
+                        <Setter Property="GridLinesVisibility" Value="None"></Setter>
+                    </Style>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#38AECC"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Setter Property="FontSize" Value="30"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="Padding" Value="10"></Setter>
+                    </Style>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="#4D5061"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="FontSize" Value="30"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="Padding" Value="8"></Setter>
+                        <Setter Property="Margin" Value="2"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#4D5061"></Setter>
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="FontSize" Value="30"></Setter>
+                        <Setter Property="Padding" Value="10"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="BorderThickness" Value="0"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
