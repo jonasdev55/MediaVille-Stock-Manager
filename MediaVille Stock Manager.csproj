@@ -6,7 +6,12 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<ApplicationIcon>Applications-database.svg.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Applications-database.svg.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="System.Data.SQLite" Version="1.0.118" />
