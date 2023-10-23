@@ -1,4 +1,4 @@
-# StockManager
+# MediaVill Stock Manager
 
 An app for managing items in a store. 
 
